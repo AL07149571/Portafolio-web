@@ -1,0 +1,189 @@
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --color-background: #000000; /* Fondo negro puro */
+    --color-text: #cccccc; /* Gris claro para el texto */
+    --color-primary: #ffffff; /* Blanco para títulos */
+    --color-accent: #2c3e50; 
+    --color-light: #111111; /* Gris oscuro para el contenedor de proyectos */
+    --color-banner: #19222f; /* NUEVO: Tono oscuro elegante para el banner */
+    --banner-height: 70px;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding-top: var(--banner-height);
+    line-height: 1.6;
+}
+
+/* --- BARRA DE NAVEGACIÓN (BANNER) --- */
+/* --- OPCIÓN 1: ISLA DINÁMICA --- */
+.banner {
+    position: fixed;
+    top: 20px; /* Separado del techo */
+    left: 50%;
+    transform: translateX(-50%); /* Truco para centrarlo perfectamente */
+    width: 80%; /* Ocupa el 80% de la pantalla */
+    max-width: 1000px; /* No crece más de 1000px en estado normal */
+    height: var(--banner-height);
+    border-radius: 40px; /* Bordes de píldora */
+    background-color: var(--color-banner);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    /* Transición suave para todos los cambios */
+    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.banner:hover {
+    top: 0; /* Se pega al techo */
+    width: 100%; 
+    max-width: 100%; 
+    height: 12vh; /* Se hace más alto */
+    border-radius: 0 0 20px 20px; /* Se vuelve cuadrado arriba, redondeado abajo */
+    background-color: #2a394d;
+}
+
+.banner-content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.banner-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+}
+
+.banner-subtitle:hover {
+    color: var(--color-primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- TIPOGRAFÍA Y TEXTOS --- */
+h1, h2, h3 {
+    color: var(--color-primary);
+    font-weight: 700;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+.header-intro, .content-paragraph {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.divider {
+    height: 3px;
+    width: 60px;
+    background-color: var(--color-primary);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* --- CONTENEDORES DE IMÁGENES --- */
+.projects-gallery {
+    background-color: var(--color-light);
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Slider modificado para verse limpio */
+.image-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 220px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.image-slider img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0.6; 
+    transform: scale(0.9);
+}
+
+.image-slider img.active {
+    opacity: 1;
+    transform: scale(1.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+/* Contenedor de imágenes estáticas */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto 20px;
+}
+
+.image-container img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.image-container img:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+}
